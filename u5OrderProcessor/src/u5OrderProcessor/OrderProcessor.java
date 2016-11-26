@@ -49,12 +49,12 @@ public class OrderProcessor implements MessageListener {
     private Queue queue;
     
     private Trip parseTrip(String s){
-    	String[] sp = s.split(" ");
+    	String[] sp = s.split(",");
     	return new Trip(Integer.parseInt(sp[0].trim()), sp[1].trim(), sp[2].trim());    	
     }
     private Booking parseBooking(String s) throws NumberFormatException, ParseException{
     	SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
-    	String[] sp = s.split(" ");
+    	String[] sp = s.split(",");
     	return new Booking(format.parse(sp[0].trim()), sp[1].trim(), Integer.parseInt(sp[2].trim()), Integer.parseInt(sp[3].trim()));
     }
     

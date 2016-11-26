@@ -96,9 +96,9 @@ public class OrderClient {
             OrderClient producer = new OrderClient();
             
             while (true){
-            	System.out.println("Please enter new booking or new trip in the following format:\nTrip: trip id name location\nBooking: booking date dd.mm.yyy name capacity id");
+            	System.out.println("Please enter new booking or new trip in the following format:\nTrip: trip, id, name, location\nBooking: booking, date dd.mm.yyy, name, capacity, id");
             	String msg = scn.nextLine();
-            	String[] msgParts = msg.split(" ", 2);
+            	String[] msgParts = msg.split(",", 2);
             	Order o = new Order(msgParts[0].trim(), msgParts[1].trim());
             	producer.send(queueName, o);            	
             }
